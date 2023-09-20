@@ -11,35 +11,19 @@ export const useShopingCart = () => {
         // console.log('handleProductChange','evento:',count);
         // let productKey: string = product.id;
 
-        console.log(count);
-
         setShoppingCart((oldShoppingCart?: {}) => {
 
-            const productInCart = oldShoppingCart[product.id] || { ...product, count: 0 };
-
-            if (Math.max(productInCart.count + count, 0) > 0) {
-                productInCart.count += count;
-                return {
-                    ...oldShoppingCart,
-                    [product.id]: productInCart
-                }
+            if (count === 0) {
+                //A esto se le llama desestructuración con alias, estamos renombrando la key por x nombre
+                //y esto como resultado la saca de la lógica establecida "la borra", manteniendo esparcido todos los demás ítems.
+                const { [product.id]: toDeleteAlias, ...restOfItems } = oldShoppingCart;
+                return restOfItems;
             }
 
-            const { [product.id]: toDeleteAlias, ...restOfItems } = oldShoppingCart;
-            return restOfItems;
-
-
-            // if (count === 0) {
-            //     //A esto se le llama desestructuración con alias, estamos renombrando la key por x nombre
-            //     //y esto como resultado la saca de la lógica establecida "la borra", manteniendo esparcido todos los demás ítems.
-            //     const { [product.id]: toDeleteAlias, ...restOfItems } = oldShoppingCart;
-            //     return restOfItems;
-            // }
-
-            // return {
-            //     ...oldShoppingCart,
-            //     [product.id]: {...product, count }
-            // }
+            return {
+                ...oldShoppingCart,
+                [product.id]: {...product, count }
+            }
         });
     }
 
