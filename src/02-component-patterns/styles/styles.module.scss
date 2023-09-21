@@ -68,3 +68,10 @@
 .test-two{
     color: red;
 }
+
+.disabled{
+    pointer-events : none;
+    border-color: grey !important;
+    color: grey !important;
+    border-left: solid 1px white !important;
+}
