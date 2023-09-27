@@ -24,16 +24,16 @@ nav {
   background-color: #363a45;
   height: 100vh;
   margin-right: 15px;
-  overflow-y: scroll;
+  overflow-y: auto;
   text-align: center;
   width: 250px;
 }
 nav ul {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-left: 0;
+  justify-content: flex-start;
+  padding: 0 28px;
 }
 
 nav li {
