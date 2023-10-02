@@ -87,5 +87,50 @@
                 "message": "Campo requerido"
             }
         ]
+    },
+    {
+        "type": "password",
+        "name": "inputPassword1",
+        "id": "inputPassword1",
+        "placeholder": "Ingresa tu password aquí",
+        "label": "Password",
+        "value": "",
+        "maxLength": "14",
+        "validations": [
+            {
+                "type": "required",
+                "message": "Campo requerido"
+            },
+            {
+                "type": "minLength",
+                "value": "6",
+                "message": "Debe de tener un mínimo de 6 caracteres"
+            },
+            {
+                "type": "maxLength",
+                "value": "14",
+                "message": "Debe de tener un máximo de 14 caracteres"
+            }
+        ]
+    },
+    {
+        "type": "password",
+        "name": "inputPassword2",
+        "id": "inputPassword2",
+        "placeholder": "Repite el password anterior aquí",
+        "label": "Repetir password",
+        "value": "",
+        "maxLength": "14",
+        "validations": [
+            {
+                "type": "required",
+                "message": "Campo requerido"
+            },
+            {
+                "type": "repeatPassword",
+                "value": "inputPassword1",
+                "message": "El password debe de ser idéntico al ingresado"
+            }
+        ]
     }
 ]

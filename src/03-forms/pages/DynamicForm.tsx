@@ -11,25 +11,25 @@ const requiredFields: { [key: string]: any } = {};
 for (const input of formJson) {
   initialValues[input.name] = input.value
 
-  if(!input.validations) continue;
+  if (!input.validations) continue;
 
   let schema = Yup.string();
 
-  for(const rule  of input.validations){
-    if( rule.type === 'required' ){
-        schema = schema.required(rule.message);
+  for (const rule of input.validations) {
+    if (rule.type === 'required') {
+      schema = schema.required(rule.message);
     }
-    if(rule.type === 'minLength'){
+    if (rule.type === 'minLength') {
       schema = schema.min((rule as any).value || 2, rule.message || 'Mínimo de caracteres 2');
     }
-    if(rule.type === 'maxLength'){
+    if (rule.type === 'maxLength') {
       schema = schema.max((rule as any).value || 10, rule.message || 'Mínimo de caracteres 10');
     }
-    if(rule.type === 'email'){
+    if (rule.type === 'email') {
       schema = schema.email(rule.message || 'Formato incorrecto');
     }
-    if(rule.type === 'password1'){
-      schema = schema.email(rule.message || 'Formato incorrecto');
+    if (rule.type === 'repeatPassword') {
+      schema = schema.oneOf([Yup.ref((rule as any).value)], rule.message || 'El password no coincide con el primero')
     }
   }
 
@@ -60,7 +60,7 @@ export const DynamicForm = () => {
             <form noValidate onSubmit={formik.handleSubmit}>
 
               {
-                formJson.map(({ name, id, placeholder, label, type, ...rest }) => {
+                formJson.map(({ name, id, placeholder, label, type, maxLength = 40, ...rest }) => {
 
                   if (type === 'text' || type === 'password' || type === 'email') {
                     return <MyTextInput
@@ -70,6 +70,7 @@ export const DynamicForm = () => {
                       label={label}
                       id={id}
                       placeholder={placeholder}
+                      maxLength={maxLength}
                     />
                   }
 
