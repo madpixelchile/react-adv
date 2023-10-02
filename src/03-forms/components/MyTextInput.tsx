@@ -12,16 +12,12 @@ interface Props{
 
 export const MyTextInput = ({ label, ...props }:Props) => {
 
-    const [ field, meta ] = useField(props);
-    // console.log('FIELD',field);
+    const [ field ] = useField(props); //[fields,meta]
     return (
         <>
             <label htmlFor={ props.id }>{ label }</label>
             <input className="text-input" { ...field } { ...props } />
             <ErrorMessage name={ props.name } component={'span'} className={'error'}/>
-            {/* {
-                ( meta.touched && meta.error ) && <span className="error">{ meta.error }</span>
-            } */}
         </>
     )
 }

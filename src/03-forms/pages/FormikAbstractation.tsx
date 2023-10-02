@@ -33,7 +33,6 @@ export const FormikAbstractation = () => {
 
                     (formik) => (
                         <form onSubmit={formik.handleSubmit}>
-
                             <MyTextInput
                                 label={'First Name'}
                                 name={'inputFirstName'}

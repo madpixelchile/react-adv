@@ -1,0 +1,91 @@
+[
+    {
+        "type": "text",
+        "name": "inputFirstName",
+        "id": "inputFirstName",
+        "placeholder": "Escríbe tu nombre aquí",
+        "label": "Nombre",
+        "value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "Campo requerido"
+            },
+            {
+                "type": "minLength",
+                "value": "2",
+                "message": "Debe de tener un mínimo de 2 caracteres"
+            },
+            {
+                "type": "maxLength",
+                "value": "10",
+                "message": "Debe de tener un máximo de 10 caracteres"
+            }
+        ]
+    },
+    {
+        "type": "text",
+        "name": "inputLastName",
+        "id": "inputLastName",
+        "placeholder": "Escríbe tu apellido aquí",
+        "label": "Apellido",
+        "value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "Campo requerido"
+            },
+            {
+                "type": "minLength",
+                "value": "2",
+                "message": "Debe de tener un mínimo de 2 caracteres"
+            },
+            {
+                "type": "maxLength",
+                "value": "10",
+                "message": "Debe de tener un máximo de 10 caracteres"
+            }
+        ]
+    },
+    {
+        "type": "email",
+        "name": "inputEmail",
+        "id": "inputEmail",
+        "placeholder": "Escríbe tu email aquí",
+        "label": "Email",
+        "value": "",
+        "validations": [
+            {
+                "type": "required",
+                "message": "Campo requerido"
+            },
+            {
+                "type": "email",
+                "message": "No cumple con el formato de email"
+            }
+        ]
+    },
+    {
+        "type": "select",
+        "name": "inputFavoriteGame",
+        "id": "inputFavoriteGame",
+        "label": "Juego favorito",
+        "value": "",
+        "options": [
+            {
+                "label": "Resident Evil",
+                "id": "0"
+            },
+            {
+                "label": "Castlevania SOTN",
+                "id": "1"
+            }
+        ],
+        "validations": [
+            {
+                "type": "required",
+                "message": "Campo requerido"
+            }
+        ]
+    }
+]
